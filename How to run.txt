@@ -1,0 +1,3 @@
+From cmd go to the folder in which these files are present
+Type  "nodemon app.js" on cmd
+Type localhost:3000/index in your browser

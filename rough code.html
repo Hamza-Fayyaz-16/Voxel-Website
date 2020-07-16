@@ -1,0 +1,83 @@
+<!--Loop wishlist.length time  -->
+<!-- <% if (user.wishlist.length>0){ %> -->
+	<!-- <%(for(let productid of user.wishlist){%> -->
+
+
+			
+													<!--  -->
+
+
+
+	<!-- ending loop -->
+<!-- <%}%> -->
+	<!-- <%}else%>{ -->
+	<!-- <h1>nothing in wishlist</h1> -->
+<!-- <%}%> -->
+
+
+Resource.find().then((products)=>{
+	const userId = "5df9f29c12562013c0e1e6d3";
+		User.findOne({_id:userId}).then((result)=>{
+			//console.log("heere",result.wishlist[0].address);
+		res.render('index.ejs',{prods:products,wishlist:result.wishlist});
+		}).catch((err)=>{
+		console.log(err);
+			});	
+
+		//res.render('index.ejs',{prods:products});
+	
+	}).catch((err)=>{
+	
+		console.log(err);
+	
+	});
+
+
+
+
+
+
+
+
+//determine call for this function
+app.get("/index:_id1", function(req,res){
+	 
+
+	const resource = Resource({name:'NineTail',address:"/img/product02.png",category:'Photos',price:999});
+		resource.save().then(function(result){
+		console.log(result);
+	
+	});
+});
+
+app.get("/index:_id2", function(req,res){
+	 
+
+	const resource = Resource({name:'A saeed',address:"/img/product03.png",category:'Photos',price:999});
+		resource.save().then(function(result){
+		console.log(result);
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+// app.get("/index:_id", function(req,res){
+	 
+// //	const mariochar = MarioChar({name:'as'}); 
+// //	mariochar.save().then(function(result){
+// //		console.log(result);
+// //	});
+// 	const user = User({name:'hamza',password:'1234',wishlist:[]});
+// 	user.save().then(function(result){
+// 		console.log(result);
+// 	});
+	
+// });
